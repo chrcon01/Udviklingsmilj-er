@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tilfældige regnestykker</h1>
+    <button id="generateBtn">Generer tal</button>
+    <p id="result"></p>
+
+    <script>
+        function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function getRandomOperation() {
+    const operations = ['+', '-', '*', '/', '%', '**'];
+    const randomIndex = Math.floor(Math.random() * operations.length);
+    return operations[randomIndex];
+    }
+
+    function calculate(a, b, op) {
+        switch(op) {
+            case '+': return a + b;
+            case '-': return a - b;
+            case '*': return a * b;
+            case '/': return b !== 0 ? (a / b).toFixed(2) : 'Division med 0!';
+            case '%': return b !== 0 ? a % b : 'Modulo med 0!';
+            case '**': return a ** b;
+        }
+    }
+    document.getElementById('generateBtn').addEventListener('click', () => {
+    const num1 = getRandomNumber(1, 20); // Tal mellem 1 og 20
+    const num2 = getRandomNumber(1, 20);
+    const operation = getRandomOperation();
+    const result = calculate(num1, num2, operation);
+
+    document.getElementById('result').textContent = `${num1} ${operation} ${num2} = ${result}`;
+    });
+    </script>
+    
+</body>
+</html>
