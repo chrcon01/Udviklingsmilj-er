@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <title>Side 2 – Sum af cifre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Sum af cifre</h1>
+  <p>Indtast et tal:</p>
+
+  <input id="tal" type="number" placeholder="fx 1234">
+  <button onclick="beregn()">Beregn</button>
+  <p id="resultat"></p>
+
+   <script>
+    function beregn() {
+      let n = Math.abs(parseInt(document.getElementById("tal").value));
+      let sum = 0;
+      while (n > 0) {
+        sum += n % 10;       
+        n = Math.floor(n/10);
+      }
+      document.getElementById("resultat").textContent = "Summen er: " + sum;
+    }
+  </script>
+
+</body>
+</html>
