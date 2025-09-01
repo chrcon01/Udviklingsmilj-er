@@ -3,14 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Side1</title>
+    <title>Side 1</title>
+  </head>
+  <body>
+    <h1>Side 1</h1>
     <p>
       Tager imod to tal fra brugeren og udskriver summen af alle de tal mellem 1
       og 1000 som mindst ét af brugerens tal går op i. Fx hvis brugeren angiver
       200 og 500 -> 200+400+600+800+1000 + 500.
     </p>
-  </head>
-  <body>
-    <h1></h1>
+
+    <script>
+      //tag imod tal
+      let a = Number(prompt("Skriv starttal"));
+      let b = Number(prompt("Skriv sluttal"));
+      let sum = 0;
+
+      //looper fra 1 intil i er under eller lig med 1000. //Lægger én til for hver omgang
+      //Hvis tallet i kan deles med a eller b, så læg i til summen
+      for (let i = 1; i <= 1000; ++i) {
+        if (i % a === 0 || i % b === 0) sum += i;
+      }
+      alert("Summen er: " + sum);
+    </script>
   </body>
 </html>
